@@ -4,15 +4,8 @@ from collections import Counter
 from dwave.system.samplers import DWaveSampler
 from dwave.system.composites import EmbeddingComposite
 
-# TODO: Generalize this to larger problem [goal: n=20]
-
-#TODO: For the moderately sized working problem:
-    # TODO: 3d plot with annealing times [10ms, 20ms, 50ms, 100ms, 200ms, 500ms, 1000ms]
-    # TODO: Try this from all starting states for reverse annealing
-        # TODO: Add pausing into schedule
-    # TODO: Repeat with forward annealing & fast annealing
-    # TODO: 8192 samples up to 200ms, 1024 samples for 500-1000ms
-    # TODO: Vary s3 variable
+# TODO: 3d plot with annealing times [10ms, 20ms, 50ms, 100ms, 200ms, 500ms, 1000ms]
+# TODO: Try this from all starting states
 
 # QPU in Juelich
 # qpu_sampler = DWaveSampler(solver='Advantage_system5.4',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4',region="eu-central-1")  # Pegasus Germany
@@ -36,11 +29,11 @@ Q = {
 
 # Reverse annealing schedule
 ANNEAL_TIME = 20
-anneal_schedule = [[0, 1], [ANNEAL_TIME / 2, 0.5], [ANNEAL_TIME, 1]
-]
+# anneal_schedule = [[0, 1], [ANNEAL_TIME / 2, 0.5], [ANNEAL_TIME, 1]
+# ]
 
 # Initial guess
-initial_state ={'s1': 1, 's2': 1, 's3': 0, 's4': 1}
+# initial_state ={'s1': 1, 's2': 1, 's3': 0, 's4': 1}
 # Convert QUBO dictionary to a BinaryQuadraticModel
 bqm = dimod.BinaryQuadraticModel.from_qubo(Q)
 
@@ -51,12 +44,12 @@ sampler = EmbeddingComposite(qpu_sampler)
 sampleset = sampler.sample(
     bqm,
     num_reads=1000,
-    initial_state=initial_state,
-    anneal_schedule=anneal_schedule,
-    reinitialize_state=False
+    # initial_state=initial_state,
+    # anneal_schedule=anneal_schedule,
+    # reinitialize_state=False
 )
 
-print("Reverse Annealing Samples:")
+print("Forward Annealing Samples:")
 for sample, energy in sampleset.data(['sample', 'energy']):
     print(sample, "Energy:", energy)
 
@@ -92,5 +85,3 @@ for i, count in enumerate(counts):
 
 plt.tight_layout()
 plt.show()
-
-# dwave.inspector.show(sampleset)
