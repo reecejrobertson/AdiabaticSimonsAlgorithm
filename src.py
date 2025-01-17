@@ -14,6 +14,36 @@ from dwave.system.composites import EmbeddingComposite
     # TODO: 8192 samples up to 200ms, 1024 samples for 500-1000ms
     # TODO: Vary s3 variable
 
+# # make QUBO for the Pm problem
+
+# from copy import deepcopy
+# import itertools
+# from operator import itemgetter
+# import numpy as np
+
+# import matplotlib
+# import matplotlib.pyplot as plt
+
+# import neal
+# import dimod
+
+# # these are D-Wave modules
+
+# from dwave.system import EmbeddingComposite, DWaveSampler, LeapHybridSampler
+# from dwave.system.composites import FixedEmbeddingComposite
+# from minorminer import find_embedding
+
+# # Problem input
+
+# s = neal.SimulatedAnnealingSampler()
+# sampleset = s.sample_qubo(
+#     Q, beta_range = (0.01, 10), num_sweeps = 200,
+#     num_reads = no_runs, beta_schedule_type="geometric"
+# )
+
+# https://github.com/iitis/parallel_machines/
+
+
 # QPU in Juelich
 # qpu_sampler = DWaveSampler(solver='Advantage_system5.4',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4',region="eu-central-1")  # Pegasus Germany
 # qpu_sampler = DWaveSampler(solver='Advantage_system4.1',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4')  # Pegasus 
