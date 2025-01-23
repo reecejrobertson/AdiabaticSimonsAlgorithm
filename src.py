@@ -15,6 +15,10 @@
 
 # TODO: Generalize this to larger problem [goal: n=20]
 
+#---------------------------------------------------------------------------
+#                             SIMULATOR CODE
+#---------------------------------------------------------------------------
+
 # # make QUBO for the Pm problem
 
 # from copy import deepcopy
