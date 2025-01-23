@@ -98,7 +98,7 @@ QPU_SAMPLERS = {
 #                            FUNCTIONS
 #---------------------------------------------------------------------------
 
-def generateQUBO(n, penalty=10):
+def generateQUBO(n, penalty=None):
     '''
     Generate the QUBO for a Simon's problem. The "secret string" is the
     bitstring of all 1s.
@@ -117,6 +117,10 @@ def generateQUBO(n, penalty=10):
         while True:
             yield f's{i}'
             i += 1
+
+    # Set the default penalty parameter to scale proportionally to oracle size.
+    if penalty == None:
+        penalty = 2**n
 
     # Initialize needed variables.
     Q = dict()
