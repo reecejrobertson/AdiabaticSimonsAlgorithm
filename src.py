@@ -84,37 +84,7 @@ PAUSING_PERCENTAGES = [0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5]
 with open('APIs/dwave.txt') as file:
     token = file.readline()
 
-# QPU in Juelich
-# qpu_sampler = DWaveSampler(solver='Advantage_system5.4',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4',region="eu-central-1")  # Pegasus Germany
-# qpu_sampler = DWaveSampler(solver='Advantage_system4.1',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4')  # Pegasus 
-# qpu_sampler = DWaveSampler(solver='Advantage_system6.4',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4')  # Pegasus
-qpu_sampler = DWaveSampler(solver='Advantage2_prototype2.6',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4')  # Zephyr
-
-# QUBO example
-Q = {
-    ('s1', 's1'): 1.0,
-    ('s1', 's2'): 2.0,
-    ('s1', 's3'): -2.0,
-    ('s1', 's4'): -4.0,
-    ('s2', 's2'): 1.0,
-    ('s2', 's3'): -2.0,
-    ('s2', 's4'): -4.0,
-    ('s3', 's3'): 10.0,
-    ('s3', 's4'): 4.0,
-    ('s4', 's4'): 4.0,
-}
-
-# Reverse annealing schedule
-ANNEAL_TIME = 20
-anneal_schedule = [[0, 1], [ANNEAL_TIME / 2, 0.5], [ANNEAL_TIME, 1]
-]
-
-# Initial guess
-initial_state ={'s1': 1, 's2': 1, 's3': 0, 's4': 1}
-# Convert QUBO dictionary to a BinaryQuadraticModel
-bqm = dimod.BinaryQuadraticModel.from_qubo(Q)
-
-# Set up the sampler (using a D-Wave solver; adjust solver parameters as needed)
+# Access the D-Wave devices.
 PEGASUS4_1 = DWaveSampler(solver='Advantage_system4.1',token=token) 
 PEGASUS6_4 = DWaveSampler(solver='Advantage_system6.4',token=token)
 ZEPHYER = DWaveSampler(solver='Advantage2_prototype2.6',token=token)
