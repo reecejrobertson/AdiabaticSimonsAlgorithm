@@ -13,6 +13,37 @@
     # TODO: Test QUBO on a heuristic simulator
     # TODO: Penalty inversely proportional to the system size
 
+# TODO: Generalize this to larger problem [goal: n=20]
+
+# # make QUBO for the Pm problem
+
+# from copy import deepcopy
+# import itertools
+# from operator import itemgetter
+# import numpy as np
+
+# import matplotlib
+# import matplotlib.pyplot as plt
+
+# import neal
+# import dimod
+
+# # these are D-Wave modules
+
+# from dwave.system import EmbeddingComposite, DWaveSampler, LeapHybridSampler
+# from dwave.system.composites import FixedEmbeddingComposite
+# from minorminer import find_embedding
+
+# # Problem input
+
+# s = neal.SimulatedAnnealingSampler()
+# sampleset = s.sample_qubo(
+#     Q, beta_range = (0.01, 10), num_sweeps = 200,
+#     num_reads = no_runs, beta_schedule_type="geometric"
+# )
+
+# https://github.com/iitis/parallel_machines/
+
 #---------------------------------------------------------------------------
 #                            IMPORTS
 #---------------------------------------------------------------------------
@@ -48,6 +79,36 @@ PAUSING_PERCENTAGES = [0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5]
 # Get the API token for D-Wave.
 with open('APIs/dwave.txt') as file:
     token = file.readline()
+
+# QPU in Juelich
+# qpu_sampler = DWaveSampler(solver='Advantage_system5.4',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4',region="eu-central-1")  # Pegasus Germany
+# qpu_sampler = DWaveSampler(solver='Advantage_system4.1',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4')  # Pegasus 
+# qpu_sampler = DWaveSampler(solver='Advantage_system6.4',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4')  # Pegasus
+qpu_sampler = DWaveSampler(solver='Advantage2_prototype2.6',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4')  # Zephyr
+
+# QUBO example
+Q = {
+    ('s1', 's1'): 1.0,
+    ('s1', 's2'): 2.0,
+    ('s1', 's3'): -2.0,
+    ('s1', 's4'): -4.0,
+    ('s2', 's2'): 1.0,
+    ('s2', 's3'): -2.0,
+    ('s2', 's4'): -4.0,
+    ('s3', 's3'): 10.0,
+    ('s3', 's4'): 4.0,
+    ('s4', 's4'): 4.0,
+}
+
+# Reverse annealing schedule
+ANNEAL_TIME = 20
+anneal_schedule = [[0, 1], [ANNEAL_TIME / 2, 0.5], [ANNEAL_TIME, 1]
+]
+
+# Initial guess
+initial_state ={'s1': 1, 's2': 1, 's3': 0, 's4': 1}
+# Convert QUBO dictionary to a BinaryQuadraticModel
+bqm = dimod.BinaryQuadraticModel.from_qubo(Q)
 
 # Set up the sampler (using a D-Wave solver; adjust solver parameters as needed)
 PEGASUS4_1 = DWaveSampler(solver='Advantage_system4.1',token=token) 
