@@ -58,6 +58,9 @@ from collections import Counter
 from dwave.system.samplers import DWaveSampler
 from dwave.system.composites import EmbeddingComposite
 
+import neal
+import dimod
+
 #---------------------------------------------------------------------------
 #                            CONSTANTS
 #---------------------------------------------------------------------------
@@ -68,8 +71,12 @@ DPI = 300                   # The resolution of figures.
 ITERATIONS = range(1, 2)    # The number of iterations for all experiments.
 NS = [3, 8]                 # Range for number of qubits for experiments.
 
+
+# Use D-Wave simulator
+SIM = True
+
 # The penalty parameters for output transitions.
-PENALTIES = [1, 2, 5, 10, 20, 50, 100]
+PENALTIES = [0.1, 1, 2, 5, 10, 20, 50, 100]
 
 # The annealing times.
 ANNEALING_TIMES = [10, 20, 50, 100, 200, 500, 1000]
@@ -80,19 +87,21 @@ ANNEALING_SCHEDULES = ['forward', 'reverse']
 # The percentage of time to be spent pausing (reverse annealing only).
 PAUSING_PERCENTAGES = [0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5]
 
-# Get the API token for D-Wave.
-with open('APIs/dwave.txt') as file:
-    token = file.readline()
 
-# Access the D-Wave devices.
-PEGASUS4_1 = DWaveSampler(solver='Advantage_system4.1',token=token) 
-PEGASUS6_4 = DWaveSampler(solver='Advantage_system6.4',token=token)
-ZEPHYER = DWaveSampler(solver='Advantage2_prototype2.6',token=token)
-QPU_SAMPLERS = {
-    'zephyer': EmbeddingComposite(ZEPHYER),
-    'pegasus6_4': EmbeddingComposite(PEGASUS6_4),
-    'pegasus4_1': EmbeddingComposite(PEGASUS4_1)
-}
+if not SIM:
+    # Get the API token for D-Wave.
+    with open('APIs/dwave.txt') as file:
+        token = file.readline()
+
+    # Access the D-Wave devices.
+    PEGASUS4_1 = DWaveSampler(solver='Advantage_system4.1',token=token) 
+    PEGASUS6_4 = DWaveSampler(solver='Advantage_system6.4',token=token)
+    ZEPHYER = DWaveSampler(solver='Advantage2_prototype2.6',token=token)
+    QPU_SAMPLERS = {
+        'zephyer': EmbeddingComposite(ZEPHYER),
+        'pegasus6_4': EmbeddingComposite(PEGASUS6_4),
+        'pegasus4_1': EmbeddingComposite(PEGASUS4_1)
+    }
 
 #---------------------------------------------------------------------------
 #                            FUNCTIONS
@@ -296,11 +305,9 @@ def extractResults(jobResults, title):
 for i in ITERATIONS:
     print(f'i = {i}')
 
-    # For each D-Wave device:
-    for qpuSamplerName in QPU_SAMPLERS.keys():
-        print(f'device = {qpuSamplerName}')
-        qpuSampler = QPU_SAMPLERS[qpuSamplerName]
+    if SIM:
 
+        print("simulating")
         # For all n:
         for n in NS:
             print(f'n = {n}')
@@ -315,74 +322,125 @@ for i in ITERATIONS:
                 # Convert QUBO dictionary to a BinaryQuadraticModel.
                 bqm = dimod.BinaryQuadraticModel.from_qubo(Q)
 
-                # For each annealing time:
-                for time in ANNEALING_TIMES:
-                    print(f'time = {time}')
+                # Run the experiment.
+                s = neal.SimulatedAnnealingSampler()
+                # https://docs.ocean.dwavesys.com/projects/neal/en/latest/reference/generated/neal.sampler.SimulatedAnnealingSampler.sample.html
 
-                    # For both annealing schedules:
-                    for schedule in ANNEALING_SCHEDULES:
-                        print(f'annealing schedule = {schedule}')
+                # these 3 are sweeping parameters - I set them by intuition
+                num_sweeps = 1000
+                beta_schedule_type="geometric"
+                beta_range = (0.01, 100)
+        
+                # Generate the title for the experiment.
+                title = (
+                    "SimulatedAnnealingSampler" + '-' +
+                    str(n)              + '-' +
+                    str(penalty)        + '-' +
+                    str(num_sweeps)     + '-' +
+                    str(beta_schedule_type)
+                )
 
-                        # If the schedule is the reserse annealing:
-                        if schedule == 'reverse':
+                sampleSet = s.sample(
+                    bqm,
+                    num_reads=SHOTS,
+                    beta_range = beta_range, 
+                    num_sweeps = num_sweeps,
+                    beta_schedule_type=beta_schedule_type
+                    )
 
-                            # Then for each pausing percentage:
-                            for pausingPercentage in PAUSING_PERCENTAGES:
-                                print(
-                                    f'pausing percentage = {pausingPercentage}'
-                                )
+                # Extract and format the experimental resuls.
+                extractResults(sampleSet, title)
 
-                                # Generate the title of the experiment.
+
+    else:
+
+        # For each D-Wave device:
+        for qpuSamplerName in QPU_SAMPLERS.keys():
+            print(f'device = {qpuSamplerName}')
+            qpuSampler = QPU_SAMPLERS[qpuSamplerName]
+
+            # For all n:
+            for n in NS:
+                print(f'n = {n}')
+
+                # For each penalty parameter:
+                for penalty in PENALTIES:
+                    print(f'penalty = {penalty}')
+
+                    # Generate a QUBO of size n.
+                    Q = generateQUBO(n, penalty)
+
+                    # Convert QUBO dictionary to a BinaryQuadraticModel.
+                    bqm = dimod.BinaryQuadraticModel.from_qubo(Q)
+
+                    # For each annealing time:
+                    for time in ANNEALING_TIMES:
+                        print(f'time = {time}')
+
+                        # For both annealing schedules:
+                        for schedule in ANNEALING_SCHEDULES:
+                            print(f'annealing schedule = {schedule}')
+
+                            # If the schedule is the reserse annealing:
+                            if schedule == 'reverse':
+
+                                # Then for each pausing percentage:
+                                for pausingPercentage in PAUSING_PERCENTAGES:
+                                    print(
+                                        f'pausing percentage = {pausingPercentage}'
+                                    )
+
+                                    # Generate the title of the experiment.
+                                    title = (
+                                        str(qpuSamplerName) + '-' +
+                                        str(n)              + '-' +
+                                        str(penalty)        + '-' +
+                                        str(time)           + '-' + 
+                                        str(schedule)       + '-' +
+                                        str(pausingPercentage)
+                                    )
+
+                                    # Deterime the annealing schedule.
+                                    annealingSchedule = setReverseSchedule(
+                                        time,
+                                        pausingPercentage
+                                    )
+
+                                    # Generate an initial guess.
+                                    initialState = dict()
+                                    for i in range(1, 3*n - 1):
+                                        initialState[f's{i}'] = 0
+
+                                    # Run the experiment.
+                                    sampleSet = qpuSampler.sample(
+                                        bqm,
+                                        num_reads=SHOTS,
+                                        initial_state=initialState,
+                                        anneal_schedule=annealingSchedule,
+                                        reinitialize_state=False
+                                    )
+
+                                    # Extract and format the experimental results.
+                                    extractResults(sampleSet, title)
+
+                            # If the scheulde is forward annealing:
+                            else:
+
+                                # Generate the title for the experiment.
                                 title = (
                                     str(qpuSamplerName) + '-' +
                                     str(n)              + '-' +
                                     str(penalty)        + '-' +
-                                    str(time)           + '-' + 
-                                    str(schedule)       + '-' +
-                                    str(pausingPercentage)
+                                    str(time)           + '-' +
+                                    str(schedule)
                                 )
-
-                                # Deterime the annealing schedule.
-                                annealingSchedule = setReverseSchedule(
-                                    time,
-                                    pausingPercentage
-                                )
-
-                                # Generate an initial guess.
-                                initialState = dict()
-                                for i in range(1, 3*n - 1):
-                                    initialState[f's{i}'] = 0
 
                                 # Run the experiment.
                                 sampleSet = qpuSampler.sample(
                                     bqm,
                                     num_reads=SHOTS,
-                                    initial_state=initialState,
-                                    anneal_schedule=annealingSchedule,
-                                    reinitialize_state=False
+                                    annealing_time = time
                                 )
 
-                                # Extract and format the experimental results.
+                                # Extract and format the experimental resuls.
                                 extractResults(sampleSet, title)
-
-                        # If the scheulde is forward annealing:
-                        else:
-
-                            # Generate the title for the experiment.
-                            title = (
-                                str(qpuSamplerName) + '-' +
-                                str(n)              + '-' +
-                                str(penalty)        + '-' +
-                                str(time)           + '-' +
-                                str(schedule)
-                            )
-
-                            # Run the experiment.
-                            sampleSet = qpuSampler.sample(
-                                bqm,
-                                num_reads=SHOTS,
-                                annealing_time = time
-                            )
-
-                            # Extract and format the experimental resuls.
-                            extractResults(sampleSet, title)
