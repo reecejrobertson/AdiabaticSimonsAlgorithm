@@ -1,4 +1,6 @@
+import csv
 import numpy as np
+from matplotlib import pyplot as plt
 
 def generateQUBO(n, penalty=None, matrix=False):
     '''
@@ -58,12 +60,10 @@ def generateQUBO(n, penalty=None, matrix=False):
     else:
 
         M = np.zeros((3*(n-1)+1, 3*(n-1)+1))
-        # print(M)
         for var1, var2 in Q:
             M[var1, var2] = Q[(var1, var2)]
             M[var2, var1] = Q[(var1, var2)]
 
-        print(M)
         return M
     
 def decodeBitstring(bitstring):
@@ -106,22 +106,38 @@ def isInputValid(inputs, outputs, ancillas):
     return True
 
 def computeExpectation(n):
-    Q = generateQUBO(n, 1, True)
-    num_qubits = len(Q)
-    temp = set()
-    for i in range(2**num_qubits):
-        x = np.array(list(map(int, list(format(i, f'0{num_qubits}b')))))
-        # print(x)
-        inputs, outputs, ancillas = decodeBitstring(x)
-        if isInputValid(inputs, outputs, ancillas):
-            key = ''.join(map(str, inputs)) + ' ' + ''.join(map(str, outputs))
-            if key not in temp:
-                temp.add(key)
-                print(key)
-        # print(decoded)
-        # print(isInputValid(decoded[0], decoded[1], decoded[2]))
-        # expectation = x.T @ Q @ x
-        # print(expectation)
-        # print(decodeBitstring(x))
+    penalties = list(map(int, np.linspace(1, 2**n, 8)))
+    fig, axs = plt.subplots(2, 4, tight_layout=True, figsize=(6, 6))
+    csvHeader = ['bitstring', 'expectation', 'penalty', 'valid']
+    with open(f'data{n}.csv', 'w+', encoding='UTF8') as file:
+        writer = csv.writer(file)
+        writer.writerow(csvHeader)
+    for idx, penalty in enumerate(penalties):
+        Q = generateQUBO(n, penalty, True)
+        num_qubits = len(Q)
+        valid = []
+        invalid = []
+        csvData = []
+        for i in range(2**num_qubits):
+            x = np.array(list(map(int, list(format(i, f'0{num_qubits}b')))))
+            expectation = x.T @ Q @ x
+            inputs, outputs, ancillas = decodeBitstring(x)
+            isValid = isInputValid(inputs, outputs, ancillas)
+            if isValid:
+                valid.append(expectation)
+            else:
+                invalid.append(expectation)
+            decodedString = ''.join(map(str, inputs)) + ' ' + ''.join(map(str, outputs)) + ' ' + ''.join(map(str, ancillas))
+            csvLine = [decodedString, expectation, penalty, isValid]
+            csvData.append(csvLine)
+        axs[1-int(idx<4), int(idx%4)].hist([valid, invalid], bins=100, histtype='barstacked', color=['r', 'k'], label=['Valid', 'Invalid'])
+        axs[1-int(idx<4), int(idx%4)].legend(loc='best')
+        axs[1-int(idx<4), int(idx%4)].set_title(f'Penalty = {penalty}')
+
+        with open(f'data{n}.csv', 'a', encoding='UTF8') as file:
+            writer = csv.writer(file)
+            writer.writerows(csvData)
+    
+    plt.show()
 
 computeExpectation(3)
