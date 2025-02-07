@@ -14,6 +14,7 @@
     # TODO: Penalty inversely proportional to the system size
 
 # TODO: Generalize this to larger problem [goal: n=20]
+# TODO: Try with 11 output bits; different penalty parameters for each bit, e.g. 2**pn or something like that
 
 #---------------------------------------------------------------------------
 #                             SIMULATOR CODE
@@ -69,17 +70,18 @@ VERBOSE = False             # If true, logs are more detailed.
 SHOTS = 512                 # The number of shots for each experiment.
 DPI = 300                   # The resolution of figures.
 ITERATIONS = range(1, 2)    # The number of iterations for all experiments.
-NS = [3, 8]                 # Range for number of qubits for experiments.
+NS = [3, 4, 8]                 # Range for number of qubits for experiments.
 
 
 # Use D-Wave simulator
 SIM = True
 
 # The penalty parameters for output transitions.
-PENALTIES = [0.1, 1, 2, 5, 10, 20, 50, 100]
+# PENALTIES = [0.1, 1, 2, 5, 10, 20, 50, 100]
+PENALTIES = [-10**2, -10**3, -10**4, -10**5, -10**6, -10**7, -10**8]
 
 # The annealing times.
-ANNEALING_TIMES = [10, 20, 50, 100, 200, 500, 1000]
+ANNEALING_TIMES = [10, 20, 50, 100, 200, 500, 1000, 5000, 10000, 1000000]
 
 # The annealing schedules.
 ANNEALING_SCHEDULES = ['forward', 'reverse']
@@ -129,7 +131,7 @@ def generateQUBO(n, penalty=None):
 
     # Set the default penalty parameter to scale proportionally to oracle size.
     if penalty == None:
-        penalty = 2**n
+        penalty = -2**n
 
     # Initialize needed variables.
     Q = dict()
@@ -306,8 +308,8 @@ for i in ITERATIONS:
     print(f'i = {i}')
 
     if SIM:
-
         print("simulating")
+
         # For all n:
         for n in NS:
             print(f'n = {n}')
@@ -340,6 +342,7 @@ for i in ITERATIONS:
                     str(beta_schedule_type)
                 )
 
+                # Run the experiment.
                 sampleSet = s.sample(
                     bqm,
                     num_reads=SHOTS,
@@ -350,7 +353,6 @@ for i in ITERATIONS:
 
                 # Extract and format the experimental resuls.
                 extractResults(sampleSet, title)
-
 
     else:
 

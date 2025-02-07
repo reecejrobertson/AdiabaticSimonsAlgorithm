@@ -4,15 +4,15 @@ from collections import Counter
 from dwave.system.samplers import DWaveSampler
 from dwave.system.composites import EmbeddingComposite
 
-# TODO: Generalize this to larger problem [goal: n=20]
+# DONE: Generalize this to larger problem [goal: n=20]
 
-#TODO: For the moderately sized working problem:
-    # TODO: 3d plot with annealing times [10ms, 20ms, 50ms, 100ms, 200ms, 500ms, 1000ms]
-    # TODO: Try this from all starting states for reverse annealing
-        # TODO: Add pausing into schedule
-    # TODO: Repeat with forward annealing & fast annealing
-    # TODO: 8192 samples up to 200ms, 1024 samples for 500-1000ms
-    # TODO: Vary s3 variable
+#DONE: For the moderately sized working problem:
+    # DONE: 3d plot with annealing times [10ms, 20ms, 50ms, 100ms, 200ms, 500ms, 1000ms]
+    # DONE: Try this from all starting states for reverse annealing
+        # DONE: Add pausing into schedule
+    # DONE: Repeat with forward annealing & fast annealing
+    # DONE: 8192 samples up to 200ms, 1024 samples for 500-1000ms
+    # DONE: Vary s3 variable
 
 # QPU in Juelich
 # qpu_sampler = DWaveSampler(solver='Advantage_system5.4',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4',region="eu-central-1")  # Pegasus Germany
