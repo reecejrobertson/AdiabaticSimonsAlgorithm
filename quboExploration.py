@@ -30,6 +30,7 @@ def generateQUBO(n, penalty=None, matrix=False):
     Q = dict()
     qubitIndex = indexIter()
     in2 = next(qubitIndex)
+    Q[(in2, in2)] = 0.0
 
     # For each qubit:
     for i in range(n-1):
@@ -41,14 +42,14 @@ def generateQUBO(n, penalty=None, matrix=False):
         ancilla = next(qubitIndex)
 
         # Add a one qubit to the QUBO oracle.
-        Q[(in1, in1)] = 1.0
+        Q[(in1, in1)] += 1.0
         Q[(in1, in2)] = 2.0
         Q[(in1, out)] = -2.0
         Q[(in1, ancilla)] = -4.0
         Q[(in2, in2)] = 1.0
         Q[(in2, out)] = -2.0
         Q[(in2, ancilla)] = -4.0
-        Q[(out, out)] = 1.0 * penalty
+        Q[(out, out)] = 1.0 * (penalty**(i+1))
         Q[(out, ancilla)] = 4.0
         Q[(ancilla, ancilla)] = 4.0
 
@@ -62,8 +63,9 @@ def generateQUBO(n, penalty=None, matrix=False):
         M = np.zeros((3*(n-1)+1, 3*(n-1)+1))
         for var1, var2 in Q:
             M[var1, var2] = Q[(var1, var2)]
-            M[var2, var1] = Q[(var1, var2)]
+            # M[var2, var1] = Q[(var1, var2)]
 
+        print(M)
         return M
     
 def decodeBitstring(bitstring):
@@ -101,13 +103,13 @@ def decodeBitstring(bitstring):
 
 def isInputValid(inputs, outputs, ancillas):
     for i in range(len(outputs)):
-        if (inputs[i] + inputs[i+1]) % 2 != outputs[i]:
+        if ((inputs[i] + inputs[i+1]) % 2 != outputs[i]) or ((inputs[i] and inputs[i+1]) != ancillas[i]):
             return False
     return True
 
 def computeExpectation(n):
     penalties = list(map(int, np.linspace(1, 2**n, 8)))
-    fig, axs = plt.subplots(2, 4, tight_layout=True, figsize=(6, 6))
+    fig, axs = plt.subplots(2, 4, tight_layout=True, figsize=(12, 6))
     csvHeader = ['bitstring', 'expectation', 'penalty', 'valid']
     with open(f'data{n}.csv', 'w+', encoding='UTF8') as file:
         writer = csv.writer(file)
@@ -131,13 +133,19 @@ def computeExpectation(n):
             csvLine = [decodedString, expectation, penalty, isValid]
             csvData.append(csvLine)
         axs[1-int(idx<4), int(idx%4)].hist([valid, invalid], bins=100, histtype='barstacked', color=['r', 'k'], label=['Valid', 'Invalid'])
-        axs[1-int(idx<4), int(idx%4)].legend(loc='best')
-        axs[1-int(idx<4), int(idx%4)].set_title(f'Penalty = {penalty}')
+        axs[1-int(idx<4), int(idx%4)].set_title(f'$p={penalty}$')
+        if idx == 3:
+            axs[1-int(idx<4), int(idx%4)].legend(loc='best')
+        if idx > 3:
+            axs[1-int(idx<4), int(idx%4)].set_xlabel(f'Energy')
+        if idx == 0 or idx == 4:
+            axs[1-int(idx<4), int(idx%4)].set_ylabel(f'Count')
 
         with open(f'data{n}.csv', 'a', encoding='UTF8') as file:
             writer = csv.writer(file)
             writer.writerows(csvData)
-    
-    plt.show()
+
+    # plt.show()
+    plt.savefig(f'fig{n}.png', dpi=300)
 
 computeExpectation(3)
