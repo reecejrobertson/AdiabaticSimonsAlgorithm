@@ -63,7 +63,6 @@ def generateQUBO(n, penalty=None, matrix=False):
         M = np.zeros((3*(n-1)+1, 3*(n-1)+1))
         for var1, var2 in Q:
             M[var1, var2] = Q[(var1, var2)]
-            # M[var2, var1] = Q[(var1, var2)]
 
         print(M)
         return M
@@ -108,8 +107,9 @@ def isInputValid(inputs, outputs, ancillas):
     return True
 
 def computeExpectation(n):
-    penalties = list(map(int, np.linspace(1, 2**n, 8)))
-    fig, axs = plt.subplots(2, 4, tight_layout=True, figsize=(12, 6))
+    penalties = [0.05, 0.1, 0.2, 0.5, 1, 2, 3, 4, 5, 6, 7, 8]
+    print(penalties)
+    fig, axs = plt.subplots(3, 4, tight_layout=True, figsize=(12, 6))
     csvHeader = ['bitstring', 'expectation', 'penalty', 'valid']
     with open(f'data{n}.csv', 'w+', encoding='UTF8') as file:
         writer = csv.writer(file)
@@ -117,7 +117,7 @@ def computeExpectation(n):
     for idx, penalty in enumerate(penalties):
         Q = generateQUBO(n, penalty, True)
         num_qubits = len(Q)
-        valid = []
+        valid = dict()
         invalid = []
         csvData = []
         for i in range(2**num_qubits):
@@ -126,20 +126,26 @@ def computeExpectation(n):
             inputs, outputs, ancillas = decodeBitstring(x)
             isValid = isInputValid(inputs, outputs, ancillas)
             if isValid:
-                valid.append(expectation)
+                key = ''.join(map(str, outputs))
+                if key in valid:
+                    valid[key].append(expectation)
+                else:
+                    valid[key] = [expectation]
             else:
                 invalid.append(expectation)
             decodedString = ''.join(map(str, inputs)) + ' ' + ''.join(map(str, outputs)) + ' ' + ''.join(map(str, ancillas))
             csvLine = [decodedString, expectation, penalty, isValid]
             csvData.append(csvLine)
-        axs[1-int(idx<4), int(idx%4)].hist([valid, invalid], bins=100, histtype='barstacked', color=['r', 'k'], label=['Valid', 'Invalid'])
-        axs[1-int(idx<4), int(idx%4)].set_title(f'$p={penalty}$')
-        if idx == 3:
-            axs[1-int(idx<4), int(idx%4)].legend(loc='best')
-        if idx > 3:
-            axs[1-int(idx<4), int(idx%4)].set_xlabel(f'Energy')
-        if idx == 0 or idx == 4:
-            axs[1-int(idx<4), int(idx%4)].set_ylabel(f'Count')
+        categories = [valid[result] for result in valid]
+        categories.append(invalid)
+        axs[int(idx/4), int(idx%4)].hist(categories, bins=100, color=['r', 'b', 'g', 'm', 'k'], histtype='barstacked')#, label=['Valid', 'Valid', 'Valid', 'Valid', 'Invalid'])
+        axs[int(idx/4), int(idx%4)].set_title(f'$p={penalty}$')
+        # if idx == 3:
+        #     axs[int(idx/4), int(idx%4)].legend(loc='best')
+        if idx > 7:
+            axs[int(idx/4), int(idx%4)].set_xlabel(f'Energy')
+        if idx in [0, 4, 8]:
+            axs[int(idx/4), int(idx%4)].set_ylabel(f'Count')
 
         with open(f'data{n}.csv', 'a', encoding='UTF8') as file:
             writer = csv.writer(file)
