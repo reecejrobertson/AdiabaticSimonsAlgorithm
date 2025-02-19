@@ -109,7 +109,7 @@ def isInputValid(inputs, outputs, ancillas):
 def computeExpectation(n):
     penalties = [0.05, 0.1, 0.2, 0.5, 1, 2, 3, 4, 5, 6, 7, 8]
     print(penalties)
-    fig, axs = plt.subplots(3, 4, tight_layout=True, figsize=(12, 6))
+    fig, axs = plt.subplots(3, 4, tight_layout=True, figsize=(12, 9))
     csvHeader = ['bitstring', 'expectation', 'penalty', 'valid']
     with open(f'data{n}.csv', 'w+', encoding='UTF8') as file:
         writer = csv.writer(file)
