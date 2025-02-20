@@ -53,14 +53,13 @@
 #                            IMPORTS
 #---------------------------------------------------------------------------
 
+import neal
 import dimod
+import numpy as np
 import matplotlib.pyplot as plt
 from collections import Counter
 from dwave.system.samplers import DWaveSampler
 from dwave.system.composites import EmbeddingComposite
-
-import neal
-import dimod
 
 #---------------------------------------------------------------------------
 #                            CONSTANTS
@@ -109,7 +108,7 @@ if not SIM:
 #                            FUNCTIONS
 #---------------------------------------------------------------------------
 
-def generateQUBO(n, penalty=None):
+def generateQUBO(n, penalty=None, matrix=False):
     '''
     Generate the QUBO for a Simon's problem. The "secret string" is the
     bitstring of all 1s.
@@ -124,9 +123,9 @@ def generateQUBO(n, penalty=None):
         '''
         An iterator to track qubit indices.
         '''
-        i = 1
+        i = 0
         while True:
-            yield f's{i}'
+            yield i
             i += 1
 
     # Set the default penalty parameter to scale proportionally to oracle size.
@@ -137,6 +136,7 @@ def generateQUBO(n, penalty=None):
     Q = dict()
     qubitIndex = indexIter()
     in2 = next(qubitIndex)
+    Q[(in2, in2)] = 0.0
 
     # For each qubit:
     for i in range(n-1):
@@ -148,19 +148,30 @@ def generateQUBO(n, penalty=None):
         ancilla = next(qubitIndex)
 
         # Add a one qubit to the QUBO oracle.
-        Q[(in1, in1)] = 1.0
+        Q[(in1, in1)] += 1.0
         Q[(in1, in2)] = 2.0
         Q[(in1, out)] = -2.0
         Q[(in1, ancilla)] = -4.0
         Q[(in2, in2)] = 1.0
         Q[(in2, out)] = -2.0
         Q[(in2, ancilla)] = -4.0
-        Q[(out, out)] = 1.0 * penalty
+        Q[(out, out)] = 1.0 * (penalty**(i+1))
         Q[(out, ancilla)] = 4.0
         Q[(ancilla, ancilla)] = 4.0
 
-    # Return the final QUBO.
-    return Q
+    if not matrix:
+
+        # Return the final QUBO.
+        return Q
+
+    else:
+
+        M = np.zeros((3*(n-1)+1, 3*(n-1)+1))
+        for var1, var2 in Q:
+            M[var1, var2] = Q[(var1, var2)]
+
+        print(M)
+        return M
 
 def decodeBitstrings(bitstringList):
     '''
