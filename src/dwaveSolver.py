@@ -34,9 +34,9 @@ else:
     # Access the D-Wave devices.
     PEGASUS4_1 = DWaveSampler(solver='Advantage_system4.1',token=token) 
     PEGASUS6_4 = DWaveSampler(solver='Advantage_system6.4',token=token)
-    ZEPHYER = DWaveSampler(solver='Advantage2_prototype2.6',token=token)
+    ZEPHYR = DWaveSampler(solver='Advantage2_prototype2.6',token=token)
     QPU_SAMPLERS = {
-        'zephyer': EmbeddingComposite(ZEPHYER),
+        'zephyr': EmbeddingComposite(ZEPHYR),
         # 'pegasus6_4': EmbeddingComposite(PEGASUS6_4),
         # 'pegasus4_1': EmbeddingComposite(PEGASUS4_1)
 }

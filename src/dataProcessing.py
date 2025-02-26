@@ -31,7 +31,7 @@ def plotFigure(dictionary, filename):
         penalty = float(dictionary[n]["penalty"])
         time = dictionary[n]["time"]
         bars = ax.bar(
-            ['|0⟩', '|1⟩', 'Others'],
+            ['$|0⟩$', '$|n-1⟩$', 'Others'],
             [
                 dictionary[n]['zeros'] / SHOTS,
                 dictionary[n]['ones'] / SHOTS,
