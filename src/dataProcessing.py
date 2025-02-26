@@ -9,7 +9,7 @@ from matplotlib import pyplot as plt
 #---------------------------------------------------------------------------
 START = 2
 END = 41
-SHOTS = 500
+SHOTS = 512
 PLOT_LAYOUT = (8, 5)
 FIGSIZE = (15, 24)
 DPI = 300
