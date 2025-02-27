@@ -25,16 +25,16 @@ ITERATIONS = range(1, 2)    # The number of iterations for all experiments.
 if SIM:
     NS = range(2, 21)       # Range for number of qubits for simulator.
 else:
-    NS = range(2, 41)      # Range for number of qubits for hardware.
+    NS = [4, 8, 16, 32, 40]      # Range for number of qubits for hardware.
 
     # Get the API token for D-Wave.
-    with open('APIs/dwave.txt') as file:
+    with open('../APIs/dwave.txt') as file:
         token = file.readline()
 
     # Access the D-Wave devices.
-    PEGASUS4_1 = DWaveSampler(solver='Advantage_system4.1',token=token) 
-    PEGASUS6_4 = DWaveSampler(solver='Advantage_system6.4',token=token)
     ZEPHYR = DWaveSampler(solver='Advantage2_prototype2.6',token=token)
+    # PEGASUS4_1 = DWaveSampler(solver='Advantage_system4.1',token=token)
+    # PEGASUS6_4 = DWaveSampler(solver='Advantage_system6.4',token=token)
     QPU_SAMPLERS = {
         'zephyr': EmbeddingComposite(ZEPHYR),
         # 'pegasus6_4': EmbeddingComposite(PEGASUS6_4),
@@ -253,13 +253,33 @@ def extractResults(jobResults, title):
     # Save the figure as an image.
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
-    plt.savefig(f'figs/{title}.png', dpi=DPI)
+    plt.savefig(f'../figs/specialPenalties/{title}.png', dpi=DPI)
     plt.close()
 
     # Write the data to a file.
-    with open(f'data/{title}.txt', 'w+') as file:
+    with open(f'../data/specialPenalties/{title}.txt', 'w+') as file:
         for i, label in enumerate(labels):
             file.write(f'{label}:{counts[i]}\n')
+
+def generatePenalties(n, p=1, option=1):
+    penalties = []
+    if option == 1:
+        for i in range(n-1):
+            if i % 2 == 0:
+                penalties.append(p)
+            else:
+                penalties.append(-p)
+    if option == 2:
+        penalties += [p] * int(n/2)
+        penalties += [-p] * ((n-1) - int(n/2))
+    if option == 3:
+        mask = np.random.choice(list(range(n-1)), int(n/2))
+        for i in range(n-1):
+            if i in mask:
+                penalties.append(-p)
+            else:
+                penalties.append(p)
+    return penalties
 
 
 #---------------------------------------------------------------------------
@@ -329,7 +349,15 @@ for i in ITERATIONS:
             for n in NS:
                 print(f'n = {n}')
 
-                penalties = [[2]*(n-1), [5]*(n-1), [n/2]*(n-1)]
+                # penalties = [[2]*(n-1), [5]*(n-1), [n/2]*(n-1)]
+                penalties = [
+                    generatePenalties(n, 2, 1),
+                    generatePenalties(n, 2, 2),
+                    generatePenalties(n, 2, 3),
+                    generatePenalties(n, 5, 1),
+                    generatePenalties(n, 5, 2),
+                    generatePenalties(n, 5, 3),
+                ]
                 annealingTimes = [100, 1000, n*10]
 
                 # For each penalty parameter:
@@ -399,7 +427,7 @@ for i in ITERATIONS:
                                 title = (
                                     str(qpuSamplerName) + '-' +
                                     str(n)              + '-' +
-                                    str(penalty[0])     + '-' +
+                                    str(penalty)     + '-' +
                                     str(time)           + '-' +
                                     str(schedule)
                                 )
