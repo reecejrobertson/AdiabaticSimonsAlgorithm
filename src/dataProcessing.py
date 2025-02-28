@@ -48,7 +48,7 @@ def plotFigure(dictionary, filename):
                 ha='center',
                 va='bottom'
             )
-        ax.set_title(f'$n = {n}, p = {penalty}, t = {time}$')
+        ax.set_title(f'$n = {n}, N = {n + 2*(n-1)}, p = {penalty}, t = {time}$')
         ax.set_ylabel('Frequency (%)')
     plt.savefig(f'../{filename}.png', dpi=DPI)
     plt.close()
@@ -64,7 +64,10 @@ for n in range(START, END):
     optimalOnes[n] = {'zeros': 0, 'ones': 0, 'others': 0, 'penalty': 0, 'time':0}
 
 for filename in os.listdir('../data/'):
-    device, size, penalty, time, protocol = filename.split('-')
+    try:
+        device, size, penalty, time, protocol = filename.split('-')
+    except:
+        continue
     n = int(size)
     if device == 'zephyer':
         with open(f'../data/{filename}') as file:
