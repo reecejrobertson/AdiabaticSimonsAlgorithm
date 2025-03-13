@@ -63,8 +63,8 @@ def generateQUBO(n, penalties=None, matrix=False):
     Generate the QUBO for a Simon's problem. The "secret string" is the
     bitstring of all 1s.
     PARAMS:
-        n       (int): The number of qubits in the oracle.
-        penalty (int): The penalty added to output transitions. None by default.
+        n       (int):   The number of qubits in the oracle.
+        penalty (array): The penalties added to output transitions.
     RETURNS:
         (dict) The QUBO for the Simon's problem.
     '''
