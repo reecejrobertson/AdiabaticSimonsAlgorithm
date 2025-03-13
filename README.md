@@ -34,7 +34,7 @@ The repository structure is as follows:
 
 ```
 adiabatic-simons-algorithm/
-├── src/                    # Source code for the adiabatic implementation of Simon's algorithm
+├── src/                    # Source code for the adiabatic Simon's algorithm
 │   ├── analystcalSolver.py # Solve Simon's QUBO exactly
 │   ├── dataProcessing.py   # Process generated data
 │   ├── dwaveSolver.py      # Solve Simon's QUBO on D-Wave hardware
