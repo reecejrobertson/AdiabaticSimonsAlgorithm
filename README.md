@@ -17,8 +17,7 @@ Simon's problem involves finding a hidden string $\( s \)$ such that a black-box
 - $\( f(x) = f(x') \)$ if $\( x \oplus x' = s \)$
 - $\( f(x) \neq f(x') \)$ otherwise.
 
-This implementation provides an adiabatic version of Simon's algorithm which uses quantum adiabatic evolution to find the hidden string $\( s \)$.
-
+This implementation provides an adiabatic version of Simon's algorithm which uses quantum adiabatic evolution to find the hidden string $\( s \).$
 For more information on the theory and implementation details, see the research paper—link forthcoming.
 
 ## Algorithm
@@ -34,7 +33,7 @@ The repository structure is as follows:
 
 ```
 adiabatic-simons-algorithm/
-├── src/                    # Source code for the adiabatic implementation of Simon's algorithm
+├── src/                    # Source code for the adiabatic Simon's algorithm
 │   ├── analystcalSolver.py # Solve Simon's QUBO exactly
 │   ├── dataProcessing.py   # Process generated data
 │   ├── dwaveSolver.py      # Solve Simon's QUBO on D-Wave hardware
