@@ -1,13 +1,14 @@
+import csv
 import numpy as np
 from matplotlib import pyplot as plt
 
-def generateQUBO(n, penalties=None, matrix=False):
+def generateQUBO(n, penalty=None, matrix=False):
     '''
     Generate the QUBO for a Simon's problem. The "secret string" is the
     bitstring of all 1s.
     PARAMS:
-        n       (int):   The number of qubits in the oracle.
-        penalty (array): The penalties added to output transitions.
+        n       (int):  The number of qubits in the oracle.
+        penalty (int):  The penalty applied to output transitions.
     RETURNS:
         (dict) The QUBO for the Simon's problem.
     '''
@@ -21,9 +22,9 @@ def generateQUBO(n, penalties=None, matrix=False):
             yield i
             i += 1
 
-    # No penalties added by default.
-    if penalties == None:
-        penalties = [0] * (n - 1)
+    # Set the default penalty parameter to scale proportionally to oracle size.
+    if penalty == None:
+        penalty = -2**n
 
     # Initialize needed variables.
     Q = dict()
@@ -48,7 +49,7 @@ def generateQUBO(n, penalties=None, matrix=False):
         Q[(in2, in2)] = 1.0
         Q[(in2, out)] = -2.0
         Q[(in2, ancilla)] = -4.0
-        Q[(out, out)] = 1.0 + penalties[i]
+        Q[(out, out)] = 1.0 * (penalty**(i+1))
         Q[(out, ancilla)] = 4.0
         Q[(ancilla, ancilla)] = 4.0
 
@@ -124,7 +125,14 @@ def computeExpectation():
 
     # Set constant variables.
     N = 3
-    PENALTIES = [None, [2, -2]]#, [2, 2]]
+    PENALTIES = [0.05, 0.1, 0.2, 0.5, 1, 2, 3, 4, 5, 6, 7, 8]
+    
+    # Instantiate a figure and a csv file.
+    fig, axs = plt.subplots(3, 4, tight_layout=True, figsize=(12, 9))
+    csvHeader = ['bitstring', 'expectation', 'penalty', 'valid']
+    with open(f'data{N}.csv', 'w+', encoding='UTF8') as file:
+        writer = csv.writer(file)
+        writer.writerow(csvHeader)
     
     # For each penalty value:
     for idx, penalty in enumerate(PENALTIES):
@@ -138,6 +146,7 @@ def computeExpectation():
         # Instantiate needed data structures.
         valid = dict()
         invalid = []
+        csvData = []
 
         # For each possible assignment of classical values to the qubits:
         for i in range(2**num_qubits):
@@ -164,13 +173,13 @@ def computeExpectation():
                 ''.join(map(str, outputs)) + ' ' +
                 ''.join(map(str, ancillas))
             )
-
-        plt.figure(figsize=(10,10))
+            csvLine = [decodedString, expectation, penalty, isValid]
+            csvData.append(csvLine)
 
         # Plot the results in a histogram.
         categories = [valid[result] for result in valid]
         categories.append(invalid)
-        plt.hist(
+        axs[int(idx/4), int(idx%4)].hist(
             categories,
             bins=100,
             color=['r', 'b', 'g', 'm', 'k'],
@@ -179,14 +188,21 @@ def computeExpectation():
         )
 
         # Label the plot.
-        plt.xticks(range(-2, 19, 1))
-        plt.yticks(range(0, 31, 2))
-        plt.xlabel(f'Energy')
-        plt.ylabel(f'Count')
+        axs[int(idx/4), int(idx%4)].set_title(f'$p={penalty}$')
+        if idx == 3:
+            axs[int(idx/4), int(idx%4)].legend(loc='best')
+        if idx > 7:
+            axs[int(idx/4), int(idx%4)].set_xlabel(f'Energy')
+        if idx in [0, 4, 8]:
+            axs[int(idx/4), int(idx%4)].set_ylabel(f'Count')
 
-        # Save the plot.
-        plt.savefig(f'fig-{N}-{str(penalty)}.png', dpi=300)
-        plt.close()
+        # Write the csv file.
+        with open(f'data{N}.csv', 'a', encoding='UTF8') as file:
+            writer = csv.writer(file)
+            writer.writerows(csvData)
+
+    # Save the plot.
+    plt.savefig(f'fig{N}.png', dpi=300)
 
 # Compute the expectation for the 3 qubit oracle.
 computeExpectation()
