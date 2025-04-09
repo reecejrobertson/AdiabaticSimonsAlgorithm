@@ -63,7 +63,6 @@ def generateQUBO(n, penalties=None, matrix=False):
         for var1, var2 in Q:
             M[var1, var2] = Q[(var1, var2)]
 
-        print(M)
         return M
     
 def decodeBitstring(bitstring):
@@ -185,8 +184,8 @@ def computeExpectation():
         plt.ylabel(f'Count')
 
         # Save the plot.
-        plt.savefig(f'fig-{N}-{str(penalty)}.png', dpi=300)
+        plt.show()
         plt.close()
 
 # Compute the expectation for the 3 qubit oracle.
-computeExpectation()
+# computeExpectation()

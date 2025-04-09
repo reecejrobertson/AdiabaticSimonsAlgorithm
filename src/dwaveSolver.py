@@ -18,14 +18,14 @@ from dwave.system.composites import EmbeddingComposite
 
 SIM = False                 # If true, then use D-Wave simulator.
 VERBOSE = False             # If true, then logs are more detailed.
-SHOTS = 512                 # The number of shots for each experiment.
+SHOTS = 4000                # The number of shots for each experiment.
 DPI = 300                   # The resolution of figures.
 ITERATIONS = range(1, 2)    # The number of iterations for all experiments.
 
 if SIM:
     NS = range(2, 21)       # Range for number of qubits for simulator.
 else:
-    NS = [4, 8, 16, 32, 40]      # Range for number of qubits for hardware.
+    NS = np.arange(5, 6, 5)      # Range for number of qubits for hardware.
 
     # Get the API token for D-Wave.
     with open('../APIs/dwave.txt') as file:
@@ -79,7 +79,7 @@ def generateQUBO(n, penalties=None, matrix=False):
             i += 1
 
     # No penalties added by default.
-    if penalties == None:
+    if type(penalties) == None:
         penalties = [0] * (n - 1)
 
     # Initialize needed variables.
@@ -120,7 +120,6 @@ def generateQUBO(n, penalties=None, matrix=False):
         for var1, var2 in Q:
             M[var1, var2] = Q[(var1, var2)]
 
-        print(M)
         return M
 
 def decodeBitstring(bitstringList):
@@ -237,27 +236,27 @@ def extractResults(jobResults, title):
     labels = decodeBitstring(list(resultCounts.keys()))
     counts = list(resultCounts.values())
 
-    # Create a histogram/bar chart.
-    plt.figure(figsize=(8, 6))
-    plt.tight_layout()
-    plt.bar(labels, counts, color='navy')
+    # # Create a histogram/bar chart.
+    # plt.figure(figsize=(8, 6))
+    # plt.tight_layout()
+    # plt.bar(labels, counts, color='navy')
     
-    # Label and title the figure.
-    plt.xlabel('Solutions')
-    plt.ylabel('Frequency')
+    # # Label and title the figure.
+    # plt.xlabel('Solutions')
+    # plt.ylabel('Frequency')
 
-    # Display the counts above each bar (optional).
-    for i, count in enumerate(counts):
-        plt.text(i, count + 0.1, str(count), ha='center', va='bottom')
+    # # Display the counts above each bar (optional).
+    # for i, count in enumerate(counts):
+    #     plt.text(i, count + 0.1, str(count), ha='center', va='bottom')
 
-    # Save the figure as an image.
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    plt.savefig(f'../figs/specialPenalties/{title}.png', dpi=DPI)
-    plt.close()
+    # # Save the figure as an image.
+    # plt.xticks(rotation=45, ha='right')
+    # plt.tight_layout()
+    # plt.savefig(f'../figs/specialPenalties/{title}.png', dpi=DPI)
+    # plt.close()
 
     # Write the data to a file.
-    with open(f'../data/specialPenalties/{title}.txt', 'w+') as file:
+    with open(f'../data/randomPenalties/{title}.txt', 'w+') as file:
         for i, label in enumerate(labels):
             file.write(f'{label}:{counts[i]}\n')
 
@@ -350,15 +349,16 @@ for i in ITERATIONS:
                 print(f'n = {n}')
 
                 # penalties = [[2]*(n-1), [5]*(n-1), [n/2]*(n-1)]
-                penalties = [
-                    generatePenalties(n, 2, 1),
-                    generatePenalties(n, 2, 2),
-                    generatePenalties(n, 2, 3),
-                    generatePenalties(n, 5, 1),
-                    generatePenalties(n, 5, 2),
-                    generatePenalties(n, 5, 3),
-                ]
-                annealingTimes = [100, 1000, n*10]
+                # penalties = [
+                #     generatePenalties(n, 2, 1),
+                #     generatePenalties(n, 2, 2),
+                #     generatePenalties(n, 2, 3),
+                #     generatePenalties(n, 5, 1),
+                #     generatePenalties(n, 5, 2),
+                #     generatePenalties(n, 5, 3),
+                # ]
+                penalties = [np.random.choice([2, -2], size=n-1, replace=True)]
+                annealingTimes = [100]
 
                 # For each penalty parameter:
                 for penalty in penalties:
@@ -427,9 +427,9 @@ for i in ITERATIONS:
                                 title = (
                                     str(qpuSamplerName) + '-' +
                                     str(n)              + '-' +
-                                    str(penalty)     + '-' +
+                                    # str(penalty)     + '-' +
                                     str(time)           + '-' +
-                                    str(schedule)
+                                    str(SHOTS)
                                 )
 
                                 # Run the experiment.
@@ -438,6 +438,8 @@ for i in ITERATIONS:
                                     num_reads=SHOTS,
                                     annealing_time = time
                                 )
+
+                                print(sampleSet.info)
 
                                 # Extract and format the experimental resuls.
                                 extractResults(sampleSet, title)
