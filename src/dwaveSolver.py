@@ -25,18 +25,20 @@ ITERATIONS = range(1, 2)    # The number of iterations for all experiments.
 if SIM:
     NS = range(2, 21)       # Range for number of qubits for simulator.
 else:
-    NS = np.arange(5, 6, 5)      # Range for number of qubits for hardware.
+    NS = np.arange(5, 101, 5)      # Range for number of qubits for hardware.
 
     # Get the API token for D-Wave.
     with open('../APIs/dwave.txt') as file:
         token = file.readline()
 
     # Access the D-Wave devices.
-    ZEPHYR = DWaveSampler(solver='Advantage2_prototype2.6',token=token)
+    PEGASUS5_4 = DWaveSampler(solver='Advantage_system5.4',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4',region="eu-central-1")  # Pegasus Germany
+    # ZEPHYR = DWaveSampler(solver='Advantage2_prototype2.6',token=token)
     # PEGASUS4_1 = DWaveSampler(solver='Advantage_system4.1',token=token)
     # PEGASUS6_4 = DWaveSampler(solver='Advantage_system6.4',token=token)
     QPU_SAMPLERS = {
-        'zephyr': EmbeddingComposite(ZEPHYR),
+        'pegasus5_4': EmbeddingComposite(PEGASUS5_4),
+        # 'zephyr': EmbeddingComposite(ZEPHYR),
         # 'pegasus6_4': EmbeddingComposite(PEGASUS6_4),
         # 'pegasus4_1': EmbeddingComposite(PEGASUS4_1)
 }
@@ -256,7 +258,7 @@ def extractResults(jobResults, title):
     # plt.close()
 
     # Write the data to a file.
-    with open(f'../data/randomPenalties/{title}.txt', 'w+') as file:
+    with open(f'../data/balancedPenalties/{title}.txt', 'w+') as file:
         for i, label in enumerate(labels):
             file.write(f'{label}:{counts[i]}\n')
 
@@ -357,7 +359,8 @@ for i in ITERATIONS:
                 #     generatePenalties(n, 5, 2),
                 #     generatePenalties(n, 5, 3),
                 # ]
-                penalties = [np.random.choice([2, -2], size=n-1, replace=True)]
+                # penalties = [np.random.choice([2, -2], size=n-1, replace=True)]
+                penalties = [[2*(-1)**i for i in range(n)]]
                 annealingTimes = [100]
 
                 # For each penalty parameter:
