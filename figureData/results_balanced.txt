@@ -1,0 +1,493 @@
+i = 1
+device = pegasus5_4
+n = 2
+penalty = [2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 84582.4, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 52.02, 'qpu_access_time': 99462.84, 'qpu_access_overhead_time': 2227.16, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': 'd6a3ef2f-9f7f-4f88-a3a1-4db641e53e62'}
+n = 3
+penalty = [2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 90644.48, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 57.94, 'qpu_access_time': 105524.92, 'qpu_access_overhead_time': 1994.08, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '7a3c1c3e-c45f-4adf-b44d-86b99d39da2c'}
+n = 4
+penalty = [2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 89600.0, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 56.92, 'qpu_access_time': 104480.44, 'qpu_access_overhead_time': 1788.56, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 57.0, 'post_processing_overhead_time': 57.0}, 'problem_id': '16dc32b8-cc06-4896-a3c9-add95e83b00b'}
+n = 5
+penalty = [2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 76554.24, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 44.18, 'qpu_access_time': 91434.28, 'qpu_access_overhead_time': 2229.72, 'qpu_programming_time': 14880.04, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '908365c2-cc07-43d2-ad27-548b8ca48316'}
+n = 6
+penalty = [2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 95354.88, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 62.54, 'qpu_access_time': 110235.32, 'qpu_access_overhead_time': 14656.68, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '45aae595-1599-40a6-b10e-3d47e52ac176'}
+n = 7
+penalty = [2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 101908.48, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 68.94, 'qpu_access_time': 116788.12, 'qpu_access_overhead_time': 2354.88, 'qpu_programming_time': 14879.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 78.0, 'post_processing_overhead_time': 78.0}, 'problem_id': '7c0840f5-fc51-4166-94f9-aaf74304c39e'}
+n = 8
+penalty = [2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 99205.12, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 66.3, 'qpu_access_time': 114084.36, 'qpu_access_overhead_time': 2349.64, 'qpu_programming_time': 14879.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': 'e002f0e0-a146-4656-9998-323d39b680e2'}
+n = 9
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 83435.52, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 50.9, 'qpu_access_time': 98314.76, 'qpu_access_overhead_time': 2298.24, 'qpu_programming_time': 14879.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 29.0, 'post_processing_overhead_time': 29.0}, 'problem_id': '110d1099-8390-474d-be77-41bf4b7bbd55'}
+n = 10
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 80691.2, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 48.22, 'qpu_access_time': 95571.64, 'qpu_access_overhead_time': 2430.36, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '5f8579a0-065f-46bb-9184-4c9a2b88bd98'}
+n = 11
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 98344.96, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 65.46, 'qpu_access_time': 113225.8, 'qpu_access_overhead_time': 2491.2, 'qpu_programming_time': 14880.84, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '97c1c33e-b4ff-4ac2-9c8f-7a2d3ca54c1a'}
+n = 12
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 81797.12, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 49.3, 'qpu_access_time': 96677.56, 'qpu_access_overhead_time': 2565.44, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': 'd27a975f-5fc1-4738-b539-af4c0e2e9f37'}
+n = 13
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 115957.76, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 82.66, 'qpu_access_time': 130838.2, 'qpu_access_overhead_time': 2497.8, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '92ecc678-1690-4b8b-8307-b14a0d63eacc'}
+n = 14
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 100597.76, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 67.66, 'qpu_access_time': 115478.6, 'qpu_access_overhead_time': 2911.4, 'qpu_programming_time': 14880.84, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 12.0, 'post_processing_overhead_time': 12.0}, 'problem_id': 'e477cbfb-1ff1-4d66-89d5-632d4e8b10a5'}
+n = 15
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 113971.2, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 80.72, 'qpu_access_time': 128851.24, 'qpu_access_overhead_time': 2829.76, 'qpu_programming_time': 14880.04, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': 'bbf83efe-d640-412e-b50f-d966e4df6caf'}
+n = 16
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 108032.0, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 74.92, 'qpu_access_time': 122912.44, 'qpu_access_overhead_time': 2880.56, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '44df6e0d-8761-489e-8050-a09112b52ed2'}
+n = 17
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 102154.24, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 69.18, 'qpu_access_time': 117035.48, 'qpu_access_overhead_time': 3017.52, 'qpu_programming_time': 14881.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 45.0, 'post_processing_overhead_time': 45.0}, 'problem_id': '5c79dafc-423f-4c9a-9d7c-84f3558388f2'}
+n = 18
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 84418.56, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 51.86, 'qpu_access_time': 99299.4, 'qpu_access_overhead_time': 1973.6, 'qpu_programming_time': 14880.84, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': 'a20e410b-6ba4-4298-aa84-af05f66acd3c'}
+n = 19
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 122019.84, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 88.58, 'qpu_access_time': 136899.48, 'qpu_access_overhead_time': 2585.52, 'qpu_programming_time': 14879.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 48.0, 'post_processing_overhead_time': 48.0}, 'problem_id': 'f927593f-b5a7-45b6-8c96-605c254eb96e'}
+n = 20
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 101212.16, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 68.26, 'qpu_access_time': 116091.4, 'qpu_access_overhead_time': 2859.6, 'qpu_programming_time': 14879.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 41.0, 'post_processing_overhead_time': 41.0}, 'problem_id': '43378cf1-7f14-480d-807f-28319c318564'}
+n = 21
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 115527.68, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 82.24, 'qpu_access_time': 130408.12, 'qpu_access_overhead_time': 1881.88, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 20.0, 'post_processing_overhead_time': 20.0}, 'problem_id': '88bf83f4-4b93-4ee4-810f-b770daf2674b'}
+n = 22
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 97300.48, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 64.44, 'qpu_access_time': 112180.12, 'qpu_access_overhead_time': 2166.88, 'qpu_programming_time': 14879.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '6f6cb420-2ca9-439a-bd3d-d57163143297'}
+n = 23
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 120340.48, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 86.94, 'qpu_access_time': 135220.12, 'qpu_access_overhead_time': 2330.88, 'qpu_programming_time': 14879.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 11.0, 'post_processing_overhead_time': 11.0}, 'problem_id': 'f3d953f0-65c6-46ce-91ff-cb8ca20aa1cb'}
+n = 24
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 107724.8, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 74.62, 'qpu_access_time': 122605.64, 'qpu_access_overhead_time': 2097.36, 'qpu_programming_time': 14880.84, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': 'ae132562-51f1-4ba7-b404-1de573f4f54c'}
+n = 25
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 136458.24, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 102.68, 'qpu_access_time': 151339.48, 'qpu_access_overhead_time': 1830.52, 'qpu_programming_time': 14881.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 13.0, 'post_processing_overhead_time': 13.0}, 'problem_id': '74ff543c-9629-4dd4-9e96-d0692c2f4932'}
+n = 26
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 120688.64, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 87.28, 'qpu_access_time': 135568.28, 'qpu_access_overhead_time': 2948.72, 'qpu_programming_time': 14879.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 20.0, 'post_processing_overhead_time': 20.0}, 'problem_id': '9acf8c67-bea0-453b-9291-1afe667b881a'}
+n = 27
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 141455.36, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 107.56, 'qpu_access_time': 156336.6, 'qpu_access_overhead_time': 2988.4, 'qpu_programming_time': 14881.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 39.0, 'post_processing_overhead_time': 39.0}, 'problem_id': '30690b06-432e-444b-9183-794ff6c08009'}
+n = 28
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 123617.28, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 90.14, 'qpu_access_time': 138496.12, 'qpu_access_overhead_time': 3312.88, 'qpu_programming_time': 14878.84, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 121.0, 'post_processing_overhead_time': 121.0}, 'problem_id': 'e0167849-caed-444d-a5e7-6a54235cdf04'}
+n = 29
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 120258.56, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 86.86, 'qpu_access_time': 135140.2, 'qpu_access_overhead_time': 3015.8, 'qpu_programming_time': 14881.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 94.0, 'post_processing_overhead_time': 94.0}, 'problem_id': '60761c99-6afb-40c6-a995-1ca5a491e671'}
+n = 30
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 101089.28, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 68.14, 'qpu_access_time': 115969.72, 'qpu_access_overhead_time': 3985.28, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '016403f0-a64b-4389-9ec1-9bf4594cd110'}
+n = 31
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 112271.36, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 79.06, 'qpu_access_time': 127151.0, 'qpu_access_overhead_time': 2905.0, 'qpu_programming_time': 14879.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 51.0, 'post_processing_overhead_time': 51.0}, 'problem_id': '321f7788-a014-45d5-ad1a-c5378f9f2fdd'}
+n = 32
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 94228.48, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 61.44, 'qpu_access_time': 109106.92, 'qpu_access_overhead_time': 3010.08, 'qpu_programming_time': 14878.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 78.0, 'post_processing_overhead_time': 78.0}, 'problem_id': 'f7bfcbac-5905-4557-acab-743682d8dab1'}
+n = 33
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 142561.28, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 108.64, 'qpu_access_time': 157438.92, 'qpu_access_overhead_time': 2395.08, 'qpu_programming_time': 14877.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '7a16b804-e82a-4600-a4ed-4cdfc7d4896c'}
+n = 34
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 98078.72, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 65.2, 'qpu_access_time': 112959.96, 'qpu_access_overhead_time': 3809.04, 'qpu_programming_time': 14881.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 41.0, 'post_processing_overhead_time': 41.0}, 'problem_id': '6b974bb0-b335-4a96-a680-25d9d7663406'}
+n = 35
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 130723.84, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 97.08, 'qpu_access_time': 145603.48, 'qpu_access_overhead_time': 3382.52, 'qpu_programming_time': 14879.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 90.0, 'post_processing_overhead_time': 90.0}, 'problem_id': 'e44ab4ae-6660-4799-a570-de8da50641f9'}
+n = 36
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 109547.52, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 76.4, 'qpu_access_time': 124429.16, 'qpu_access_overhead_time': 3260.84, 'qpu_programming_time': 14881.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '01bd096e-2238-48ff-961e-6ef61f4f3328'}
+n = 37
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 120606.72, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 87.2, 'qpu_access_time': 135482.76, 'qpu_access_overhead_time': 3601.24, 'qpu_programming_time': 14876.04, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 66.0, 'post_processing_overhead_time': 66.0}, 'problem_id': '09821cd2-28d8-430d-b60e-328411d25086'}
+n = 38
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 96931.84, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 64.08, 'qpu_access_time': 111811.88, 'qpu_access_overhead_time': 3834.12, 'qpu_programming_time': 14880.04, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 33.0, 'post_processing_overhead_time': 33.0}, 'problem_id': '34fb5c5d-d6f1-4eb8-888b-01b96397c4f1'}
+n = 39
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 94699.52, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 61.9, 'qpu_access_time': 109580.76, 'qpu_access_overhead_time': 3508.24, 'qpu_programming_time': 14881.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': 'ba2ac942-7a2e-4648-bd82-d73b62d2b830'}
+n = 40
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 94986.24, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 62.18, 'qpu_access_time': 109865.08, 'qpu_access_overhead_time': 3457.92, 'qpu_programming_time': 14878.84, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 35.0, 'post_processing_overhead_time': 35.0}, 'problem_id': '8cda421b-c04e-4d78-b8a5-0ecc9f553fb9'}
+n = 41
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+^[[A{'timing': {'qpu_sampling_time': 125173.76, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 91.66, 'qpu_access_time': 140055.0, 'qpu_access_overhead_time': 3406.0, 'qpu_programming_time': 14881.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 36.0, 'post_processing_overhead_time': 36.0}, 'problem_id': '1c4119ff-8ed6-404b-9be3-07507d1eae53'}
+n = 42
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 97218.56, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 64.36, 'qpu_access_time': 112097.4, 'qpu_access_overhead_time': 3896.6, 'qpu_programming_time': 14878.84, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 31.0, 'post_processing_overhead_time': 31.0}, 'problem_id': '678ea9d4-ce49-4f37-bc52-fd2f371200b8'}
+n = 43
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 108195.84, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 75.08, 'qpu_access_time': 123073.08, 'qpu_access_overhead_time': 3675.92, 'qpu_programming_time': 14877.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 14.0, 'post_processing_overhead_time': 14.0}, 'problem_id': 'a8979be8-d1e7-4c65-bc7a-93a8c9c8a12c'}
+n = 44
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 128471.04, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 94.88, 'qpu_access_time': 143352.28, 'qpu_access_overhead_time': 2184.72, 'qpu_programming_time': 14881.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 13.0, 'post_processing_overhead_time': 13.0}, 'problem_id': '1b3a69ec-629f-42f3-ab6a-5056e63a0cea'}
+n = 45
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 99635.2, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 66.72, 'qpu_access_time': 114515.64, 'qpu_access_overhead_time': 3504.36, 'qpu_programming_time': 14880.44, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 62.0, 'post_processing_overhead_time': 62.0}, 'problem_id': '23e4e6b8-73af-4c3c-90a4-9fe7c0ada864'}
+n = 46
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 138690.56, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 104.86, 'qpu_access_time': 153569.8, 'qpu_access_overhead_time': 3705.2, 'qpu_programming_time': 14879.24, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 71.0, 'post_processing_overhead_time': 71.0}, 'problem_id': '49afab89-6013-4462-8d09-5e28467f540e'}
+n = 47
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 123617.28, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 90.14, 'qpu_access_time': 138499.32, 'qpu_access_overhead_time': 3686.68, 'qpu_programming_time': 14882.04, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 54.0, 'post_processing_overhead_time': 54.0}, 'problem_id': '59a03ec9-f700-49e0-a6c1-bbe9403af5e2'}
+n = 48
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 136499.2, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 102.72, 'qpu_access_time': 151376.84, 'qpu_access_overhead_time': 1965.16, 'qpu_programming_time': 14877.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 36.0, 'post_processing_overhead_time': 36.0}, 'problem_id': '396dbe23-479a-4c69-ba81-0f6c05cdba28'}
+n = 49
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 125726.72, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 92.2, 'qpu_access_time': 140606.36, 'qpu_access_overhead_time': 3792.64, 'qpu_programming_time': 14879.64, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 6.0, 'post_processing_overhead_time': 6.0}, 'problem_id': '8d451ac6-319f-4290-aa04-3da3fe8d9ea4'}
+n = 50
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 143400.96, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 109.46, 'qpu_access_time': 158281.8, 'qpu_access_overhead_time': 2108.2, 'qpu_programming_time': 14880.84, 'qpu_delay_time_per_sample': 20.58, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '40ebd1b3-ca9d-4599-9097-b740d3563d0e'}
+device = zephyr
+n = 2
+penalty = [2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 70389.76, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 38.17, 'qpu_access_time': 89590.98, 'qpu_access_overhead_time': 711.02, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'total_post_processing_time': 1.0, 'post_processing_overhead_time': 1.0}, 'problem_id': '1908076e-e616-4655-9e2c-3d841c8d6970'}
+n = 3
+penalty = [2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 78376.96, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 45.97, 'qpu_access_time': 97578.18, 'qpu_access_overhead_time': 768.82, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': 'fa7ede01-9735-4bb9-a0ac-d7e1ab4ab4e5'}
+n = 4
+penalty = [2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 90869.76, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 58.17, 'qpu_access_time': 110070.98, 'qpu_access_overhead_time': 646.02, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': 'a916a9af-ba5f-4955-8ebf-e601d7ccdcdc'}
+n = 5
+penalty = [2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 78704.64, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 46.29, 'qpu_access_time': 97906.26, 'qpu_access_overhead_time': 802.74, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '71c702c6-df6b-48d3-a97e-2acbd23b2087'}
+n = 6
+penalty = [2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 91361.28, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 58.65, 'qpu_access_time': 110562.5, 'qpu_access_overhead_time': 677.5, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 15.0, 'total_post_processing_time': 15.0}, 'problem_id': '808f6427-0cad-407b-b3f9-a038c20a78ae'}
+n = 7
+penalty = [2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 91156.48, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 58.45, 'qpu_access_time': 110358.1, 'qpu_access_overhead_time': 779.9, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': 'b23e0404-2be7-4f2a-9146-c73e02887852'}
+n = 8
+penalty = [2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 98037.76, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 65.17, 'qpu_access_time': 117238.98, 'qpu_access_overhead_time': 788.02, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': 'b5a8ad1d-a32c-4923-921f-bae4ea14e535'}
+n = 9
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 99471.36, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 66.57, 'qpu_access_time': 118672.58, 'qpu_access_overhead_time': 716.42, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 50.0, 'total_post_processing_time': 50.0}, 'problem_id': 'c2567fe7-4049-48c0-8b4b-c67b6403e029'}
+n = 10
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 100290.56, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 67.37, 'qpu_access_time': 119491.78, 'qpu_access_overhead_time': 888.22, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '33c08c75-02d4-4ebb-8138-576768e59662'}
+n = 11
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 100167.68, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 67.25, 'qpu_access_time': 119368.9, 'qpu_access_overhead_time': 913.1, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': 'd5c5467e-5fba-4ccb-950e-f987710a5cbd'}
+n = 12
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 101928.96, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 68.97, 'qpu_access_time': 121129.78, 'qpu_access_overhead_time': 909.22, 'qpu_programming_time': 19200.82, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': 'd4d442b0-b59a-45e9-8f41-afea488794df'}
+n = 13
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 103526.4, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 70.53, 'qpu_access_time': 122728.02, 'qpu_access_overhead_time': 1109.98, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 13.0, 'total_post_processing_time': 13.0}, 'problem_id': '5b823b2e-6815-4f71-be27-303acd6585ad'}
+n = 14
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 94146.56, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 61.37, 'qpu_access_time': 113347.78, 'qpu_access_overhead_time': 1023.22, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '49b3cb55-de84-4cb8-a898-830b0a88e43c'}
+n = 15
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 104263.68, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 71.25, 'qpu_access_time': 123465.3, 'qpu_access_overhead_time': 967.7, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 20.0, 'total_post_processing_time': 20.0}, 'problem_id': 'dff68678-a6ce-422f-a7db-cf97c03608ac'}
+n = 16
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 75591.68, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 43.25, 'qpu_access_time': 94792.5, 'qpu_access_overhead_time': 1019.5, 'qpu_programming_time': 19200.82, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 9.0, 'total_post_processing_time': 9.0}, 'problem_id': '20c3d0db-89a6-4cf3-bf25-43d3f9c0352c'}
+n = 17
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 103321.6, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 70.33, 'qpu_access_time': 122523.22, 'qpu_access_overhead_time': 841.78, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 32.0, 'total_post_processing_time': 32.0}, 'problem_id': '1da56268-a0f0-4775-88ec-41635cbc6ba9'}
+n = 18
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 101478.4, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 68.53, 'qpu_access_time': 120679.62, 'qpu_access_overhead_time': 1015.38, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': 'c5b61830-1716-47b1-ae89-a0f63efcb4ab'}
+n = 19
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 72806.4, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 40.53, 'qpu_access_time': 92007.62, 'qpu_access_overhead_time': 862.38, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 96.0, 'total_post_processing_time': 96.0}, 'problem_id': '5e002f87-7876-4af1-b5fd-ee03309fb9ad'}
+n = 20
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 76206.08, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 43.85, 'qpu_access_time': 95407.7, 'qpu_access_overhead_time': 912.3, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 26.0, 'total_post_processing_time': 26.0}, 'problem_id': 'f7eb10ec-f970-4a2b-b643-e048eadb890e'}
+n = 21
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 76288.0, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 43.93, 'qpu_access_time': 95489.62, 'qpu_access_overhead_time': 1147.38, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '137fe500-9b9d-42e9-936c-697e57284644'}
+n = 22
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 105205.76, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 72.17, 'qpu_access_time': 124406.98, 'qpu_access_overhead_time': 22018.02, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 16.0, 'total_post_processing_time': 16.0}, 'problem_id': 'e7aa3510-7b03-442f-9b8b-2022aaaa23a7'}
+n = 23
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 76165.12, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 43.81, 'qpu_access_time': 95365.94, 'qpu_access_overhead_time': 1103.06, 'qpu_programming_time': 19200.82, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '5e78344e-ab62-44d1-8ec0-bd9a6d67fed8'}
+n = 24
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 76615.68, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 44.25, 'qpu_access_time': 95816.9, 'qpu_access_overhead_time': 1074.1, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': 'c147d720-1e1d-43ac-ab76-cce5495c5b78'}
+n = 25
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 76820.48, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 44.45, 'qpu_access_time': 96021.3, 'qpu_access_overhead_time': 1364.7, 'qpu_programming_time': 19200.82, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': 'f62e0cbf-d19d-4225-b64f-76ca303d258a'}
+n = 26
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 109301.76, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 76.17, 'qpu_access_time': 128503.78, 'qpu_access_overhead_time': 1208.22, 'qpu_programming_time': 19202.02, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '61d1f645-246b-4d4e-98b3-768d4c3c80e7'}
+n = 27
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 109342.72, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 76.21, 'qpu_access_time': 128543.94, 'qpu_access_overhead_time': 1068.06, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 88.0, 'total_post_processing_time': 88.0}, 'problem_id': '5401d568-11f0-4f31-b9e1-75930eafcc52'}
+n = 28
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 76574.72, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 44.21, 'qpu_access_time': 95776.74, 'qpu_access_overhead_time': 1258.26, 'qpu_programming_time': 19202.02, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 22.0, 'total_post_processing_time': 22.0}, 'problem_id': '0c827c75-5547-4af8-98bc-001bcc449688'}
+n = 29
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 111841.28, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 78.65, 'qpu_access_time': 131043.3, 'qpu_access_overhead_time': 1399.7, 'qpu_programming_time': 19202.02, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 84.0, 'total_post_processing_time': 84.0}, 'problem_id': 'a199e474-bc1c-4999-a0bf-1c7a93566ac1'}
+n = 30
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 110694.4, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 77.53, 'qpu_access_time': 129896.82, 'qpu_access_overhead_time': 1350.18, 'qpu_programming_time': 19202.42, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '846c7333-a1bf-4250-8b7e-c78e6a9c2acb'}
+n = 31
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 76943.36, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 44.57, 'qpu_access_time': 96143.78, 'qpu_access_overhead_time': 1364.22, 'qpu_programming_time': 19200.42, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 17.0, 'total_post_processing_time': 17.0}, 'problem_id': 'af9b7911-a98f-4560-93dc-e05af4fca6d6'}
+n = 32
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 110120.96, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 76.97, 'qpu_access_time': 129322.58, 'qpu_access_overhead_time': 1588.42, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 22.0, 'total_post_processing_time': 22.0}, 'problem_id': 'b72a18dd-64b9-4308-b0cd-e1e5cd7a0178'}
+n = 33
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 83701.76, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 51.17, 'qpu_access_time': 102901.38, 'qpu_access_overhead_time': 1469.62, 'qpu_programming_time': 19199.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 27.0, 'total_post_processing_time': 27.0}, 'problem_id': 'fe8bc61b-835c-4ca8-8c1b-9409da6961e3'}
+n = 34
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 89722.88, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 57.05, 'qpu_access_time': 108924.5, 'qpu_access_overhead_time': 1088.5, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 9.0, 'total_post_processing_time': 9.0}, 'problem_id': 'd30904c2-21a4-4932-b8b1-1c011c80785b'}
+n = 35
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 90296.32, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 57.61, 'qpu_access_time': 109497.54, 'qpu_access_overhead_time': 1347.46, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '5e1ca088-f1aa-4eb3-a27f-a0e9f1fad8cd'}
+n = 36
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 112128.0, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 78.93, 'qpu_access_time': 131329.22, 'qpu_access_overhead_time': 1473.78, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '4b20882f-c895-4588-8bd1-f90c284f0bc2'}
+n = 37
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 78458.88, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 46.05, 'qpu_access_time': 97659.7, 'qpu_access_overhead_time': 1225.3, 'qpu_programming_time': 19200.82, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 83.0, 'total_post_processing_time': 83.0}, 'problem_id': '56828f88-ace9-4aab-9e61-3d18ab0b6f96'}
+n = 38
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 104345.6, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 71.33, 'qpu_access_time': 123546.82, 'qpu_access_overhead_time': 1309.18, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '85a97675-aa80-47f6-8bf2-005e565d6fce'}
+n = 39
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 105984.0, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 72.93, 'qpu_access_time': 125185.22, 'qpu_access_overhead_time': 1518.78, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 19.0, 'total_post_processing_time': 19.0}, 'problem_id': 'eb3d73a9-fd70-45f6-bad2-ce661a60e950'}
+n = 40
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 111104.0, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 77.93, 'qpu_access_time': 130305.22, 'qpu_access_overhead_time': 1422.78, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 34.0, 'total_post_processing_time': 34.0}, 'problem_id': 'f2ee4fa8-e29c-4bf2-8988-da5d258beb0d'}
+n = 41
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 114503.68, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 81.25, 'qpu_access_time': 133705.3, 'qpu_access_overhead_time': 1865.7, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 63.0, 'total_post_processing_time': 63.0}, 'problem_id': '58e4d14b-e552-400e-ab0d-acec026c8573'}
+n = 42
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 110571.52, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 77.41, 'qpu_access_time': 129772.74, 'qpu_access_overhead_time': 1357.26, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '0e76d684-70a0-4234-b3c9-714221c094e6'}
+n = 43
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 117125.12, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 83.81, 'qpu_access_time': 136326.74, 'qpu_access_overhead_time': 1387.26, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 10.0, 'total_post_processing_time': 10.0}, 'problem_id': '3f64043d-dc8b-4717-bde1-61bdbe5be8da'}
+n = 44
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 108769.28, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 75.65, 'qpu_access_time': 127970.5, 'qpu_access_overhead_time': 1841.5, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 63.0, 'total_post_processing_time': 63.0}, 'problem_id': '79d23036-75b8-4581-bc7c-d14673fa0067'}
+n = 45
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 78540.8, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 46.13, 'qpu_access_time': 97741.22, 'qpu_access_overhead_time': 1087.78, 'qpu_programming_time': 19200.42, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 26.0, 'total_post_processing_time': 26.0}, 'problem_id': '6fabd4d0-64ef-4df4-a5ad-15de459940d0'}
+n = 46
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 79073.28, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 46.65, 'qpu_access_time': 98274.1, 'qpu_access_overhead_time': 1373.9, 'qpu_programming_time': 19200.82, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 147.0, 'total_post_processing_time': 147.0}, 'problem_id': '299d07e0-6f46-4d94-8c24-59e0908e0da4'}
+n = 47
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 110489.6, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 77.33, 'qpu_access_time': 129692.42, 'qpu_access_overhead_time': 1548.58, 'qpu_programming_time': 19202.82, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '93547dc9-9430-48ef-8ac7-f7fcdaa5b982'}
+n = 48
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 112455.68, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 79.25, 'qpu_access_time': 131656.9, 'qpu_access_overhead_time': 1585.1, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 1.0, 'total_post_processing_time': 1.0}, 'problem_id': '9479f140-a787-4b89-8293-72ee1ec16b7d'}
+n = 49
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 113438.72, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 80.21, 'qpu_access_time': 132640.34, 'qpu_access_overhead_time': 1544.66, 'qpu_programming_time': 19201.62, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 22.0, 'total_post_processing_time': 22.0}, 'problem_id': '695e103c-5c67-43d9-8295-24f89e360c8a'}
+n = 50
+penalty = [2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, 2, -2]
+time = 10
+annealing schedule = forward
+{'timing': {'qpu_sampling_time': 112947.2, 'qpu_anneal_time_per_sample': 10.0, 'qpu_readout_time_per_sample': 79.73, 'qpu_access_time': 132148.42, 'qpu_access_overhead_time': 1502.58, 'qpu_programming_time': 19201.22, 'qpu_delay_time_per_sample': 20.57, 'post_processing_overhead_time': 144.0, 'total_post_processing_time': 144.0}, 'problem_id': '38119e09-5ecf-45a0-9415-22cb13be9020'}
