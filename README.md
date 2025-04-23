@@ -34,7 +34,7 @@ The repository structure is as follows:
 adiabatic-simons-algorithm/
 ├── src/                              # Source code for the adiabatic Simon's algorithm
 │   ├── analyticalSolver.py           # Solve Simon's QUBO exactly
-│   ├── circuitSolver.py              # Solve Simon's problem via gate-based circuit implementation
+│   ├── circuitSolver.py              # Solve Simon's problem via gate-based circuits
 │   ├── dwaveEmbedding.py             # View the embedding of a QUBO on a D-Wave device
 │   ├── dwaveProcessing.py            # Process data generated through dwaveSolver.py
 │   ├── dwaveSolver.py                # Solve Simon's QUBO on D-Wave hardware or simulator
@@ -43,9 +43,9 @@ adiabatic-simons-algorithm/
 │   └── QUBOforExternalSolver.py      # Generate QUBOs to offload to external solvers
 ├── APIs/                             # API folder (must be created locally)
 │   ├── dwave.py                      # D-Wave API file (must be created locally)
-├── data/                             # Data folder
-├── figs/                             # Figure folder
-├── QUBOs/                            # Folder containing text files for balanced and random QUBOS
+├── data/                             # Contains data files
+├── figs/                             # Contains figures in PDF format
+├── QUBOs/                            # Contains text files for balanced and random QUBOS
 ├── archive/                          # Old code, data, and figure files
 ├── .gitignore                        # Git ignore file (e.g., system files)
 ├── LICENSE                           # License file
