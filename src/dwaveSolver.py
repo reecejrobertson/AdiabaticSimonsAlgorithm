@@ -2,7 +2,6 @@
 #                            IMPORTS
 #---------------------------------------------------------------------------
 
-# import csv
 import neal
 import dimod
 import numpy as np
@@ -16,14 +15,14 @@ from dwave.system.composites import EmbeddingComposite
 #                            CONSTANTS
 #---------------------------------------------------------------------------
 
-SIM = False                 # If true, then use D-Wave simulator.
-VERBOSE = False             # If true, then logs are more detailed.
-SHOTS = 4000                # The number of shots for each experiment.
-DPI = 300                   # The resolution of figures.
-ITERATIONS = range(1, 2)    # The number of iterations for all experiments.
+SIM = False                     # If true, then use D-Wave simulator.
+VERBOSE = False                 # If true, then logs are more detailed.
+SHOTS = 4000                    # The number of shots for each experiment.
+DPI = 300                       # The resolution of figures.
+ITERATIONS = range(1, 2)        # The number of iterations for all experiments.
 
 if SIM:
-    NS = range(2, 21)       # Range for number of qubits for simulator.
+    NS = range(2, 21)           # Range for number of qubits for simulator.
 else:
     NS = np.arange(5, 101, 5)   # Range for number of qubits for hardware.
 
@@ -32,25 +31,23 @@ else:
         token = file.readline()
 
     # Access the D-Wave devices.
-    # PEGASUS5_4 = DWaveSampler(solver='Advantage_system5.4',token='julr-a86ece088ec3ae431ae7ee0541c03112c43d7af4',region="eu-central-1")  # Pegasus Germany
     ZEPHYR = DWaveSampler(solver='Advantage2_prototype2.6',token=token)
-    # PEGASUS4_1 = DWaveSampler(solver='Advantage_system4.1',token=token)
-    # PEGASUS6_4 = DWaveSampler(solver='Advantage_system6.4',token=token)
+    PEGASUS4_1 = DWaveSampler(solver='Advantage_system4.1',token=token)
+    PEGASUS6_4 = DWaveSampler(solver='Advantage_system6.4',token=token)
     QPU_SAMPLERS = {
-        # 'pegasus5_4': EmbeddingComposite(PEGASUS5_4),
         'zephyr': EmbeddingComposite(ZEPHYR),
-        # 'pegasus6_4': EmbeddingComposite(PEGASUS6_4),
-        # 'pegasus4_1': EmbeddingComposite(PEGASUS4_1)
+        'pegasus6_4': EmbeddingComposite(PEGASUS6_4),
+        'pegasus4_1': EmbeddingComposite(PEGASUS4_1)
 }
 
-# # The penalty parameters for output transitions.
-# PENALTIES = [0, 0.05, 0.1, 0.2, 0.5, 1, 2, 3, 4, 5, 6, 7, 8]
+# The penalty parameters for output transitions.
+PENALTIES = [0, 0.05, 0.1, 0.2, 0.5, 1, 2, 3, 4, 5, 6, 7, 8]
 
 # The annealing times.
-# ANNEALING_TIMES = [10, 20, 50, 100, 200, 500, 1000]
+ANNEALING_TIMES = [10, 20, 50, 100, 200, 500, 1000]
 
 # The annealing schedules.
-ANNEALING_SCHEDULES = ['forward']#, 'reverse']
+ANNEALING_SCHEDULES = ['forward', 'reverse']
 
 # The percentage of time to be spent pausing (reverse annealing only).
 PAUSING_PERCENTAGES = [0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5]
@@ -234,53 +231,14 @@ def extractResults(jobResults, title):
     # Count the number of instances of each result.
     resultCounts = Counter(results)
 
-    # Prepare data for plotting.
+    # Prepare data for saving.
     labels = decodeBitstring(list(resultCounts.keys()))
     counts = list(resultCounts.values())
-
-    # # Create a histogram/bar chart.
-    # plt.figure(figsize=(8, 6))
-    # plt.tight_layout()
-    # plt.bar(labels, counts, color='navy')
-    
-    # # Label and title the figure.
-    # plt.xlabel('Solutions')
-    # plt.ylabel('Frequency')
-
-    # # Display the counts above each bar (optional).
-    # for i, count in enumerate(counts):
-    #     plt.text(i, count + 0.1, str(count), ha='center', va='bottom')
-
-    # # Save the figure as an image.
-    # plt.xticks(rotation=45, ha='right')
-    # plt.tight_layout()
-    # plt.savefig(f'../figs/specialPenalties/{title}.png', dpi=DPI)
-    # plt.close()
 
     # Write the data to a file.
     with open(f'../data/randomPenalties/{title}.txt', 'w+') as file:
         for i, label in enumerate(labels):
             file.write(f'{label}:{counts[i]}\n')
-
-def generatePenalties(n, p=1, option=1):
-    penalties = []
-    if option == 1:
-        for i in range(n-1):
-            if i % 2 == 0:
-                penalties.append(p)
-            else:
-                penalties.append(-p)
-    if option == 2:
-        penalties += [p] * int(n/2)
-        penalties += [-p] * ((n-1) - int(n/2))
-    if option == 3:
-        mask = np.random.choice(list(range(n-1)), int(n/2))
-        for i in range(n-1):
-            if i in mask:
-                penalties.append(-p)
-            else:
-                penalties.append(p)
-    return penalties
 
 
 #---------------------------------------------------------------------------
@@ -298,10 +256,8 @@ for i in ITERATIONS:
         for n in NS:
             print(f'n = {n}')
 
-            penalties = [[0]*(n-1), [1]*(n-1), [n]*(n-1)]
-
             # For each penalty parameter:
-            for penalty in penalties:
+            for penalty in PENALTIES:
                 print(f'penalty = {penalty}')
 
                 # Generate a QUBO of size n.
@@ -350,21 +306,8 @@ for i in ITERATIONS:
             for n in NS:
                 print(f'n = {n}')
 
-                # penalties = [[2]*(n-1), [5]*(n-1), [n/2]*(n-1)]
-                # penalties = [
-                #     generatePenalties(n, 2, 1),
-                #     generatePenalties(n, 2, 2),
-                #     generatePenalties(n, 2, 3),
-                #     generatePenalties(n, 5, 1),
-                #     generatePenalties(n, 5, 2),
-                #     generatePenalties(n, 5, 3),
-                # ]
-                penalties = [np.random.choice([2, -2], size=n-1, replace=True)]
-                # penalties = [[2*(-1)**i for i in range(n)]]
-                annealingTimes = [100]
-
                 # For each penalty parameter:
-                for penalty in penalties:
+                for penalty in PENALTIES:
                     print(f'penalty = {penalty}')
 
                     # Generate a QUBO of size n.
@@ -374,7 +317,7 @@ for i in ITERATIONS:
                     bqm = dimod.BinaryQuadraticModel.from_qubo(Q)
 
                     # For each annealing time:
-                    for time in annealingTimes:
+                    for time in ANNEALING_TIMES:
                         print(f'time = {time}')
 
                         # For both annealing schedules:
@@ -394,7 +337,7 @@ for i in ITERATIONS:
                                     title = (
                                         str(qpuSamplerName) + '-' +
                                         str(n)              + '-' +
-                                        str(penalty[0])     + '-' +
+                                        str(penalty)        + '-' +
                                         str(time)           + '-' + 
                                         str(schedule)       + '-' +
                                         str(pausingPercentage)
@@ -430,7 +373,7 @@ for i in ITERATIONS:
                                 title = (
                                     str(qpuSamplerName) + '-' +
                                     str(n)              + '-' +
-                                    # str(penalty)     + '-' +
+                                    str(penalty)        + '-' +
                                     str(time)           + '-' +
                                     str(SHOTS)
                                 )
