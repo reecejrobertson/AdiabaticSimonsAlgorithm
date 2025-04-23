@@ -32,23 +32,30 @@ The repository structure is as follows:
 
 ```
 adiabatic-simons-algorithm/
-├── src/                    # Source code for the adiabatic Simon's algorithm
-│   ├── analystcalSolver.py # Solve Simon's QUBO exactly
-│   ├── dataProcessing.py   # Process generated data
-│   ├── dwaveSolver.py      # Solve Simon's QUBO on D-Wave hardware
-│   └── simulatorSolver.py  # Solve Simon's QUBO on D-Wave simulators
-├── APIs/                   # API folder (must be created locally)
-│   ├── dwave.py            # D-Wave API file (must be created locally)
-├── data/                   # Data folder
-├── archive/                # Old code files
-├── .gitignore              # Git ignore file (e.g., system files)
-├── LICENSE                 # License file
-└── README.md               # Project description and instructions
+├── src/                              # Source code for the adiabatic Simon's algorithm
+│   ├── analyticalSolver.py           # Solve Simon's QUBO exactly
+│   ├── circuitSolver.py              # Solve Simon's problem via gate-based circuit implementation
+│   ├── dwaveEmbedding.py             # View the embedding of a QUBO on a D-Wave device
+│   ├── dwaveProcessing.py            # Process data generated through dwaveSolver.py
+│   ├── dwaveSolver.py                # Solve Simon's QUBO on D-Wave hardware or simulator
+│   ├── formatDataForPlotting.ipynb   # Format data for plotting with generatePlots.ipynb
+│   ├── generatePlots.ipynb           # Generate clean plots to save in the figs/ folder
+│   └── QUBOforExternalSolver.py      # Generate QUBOs to offload to external solvers
+├── APIs/                             # API folder (must be created locally)
+│   ├── dwave.py                      # D-Wave API file (must be created locally)
+├── data/                             # Data folder
+├── figs/                             # Figure folder
+├── QUBOs/                            # Folder containing text files for balanced and random QUBOS
+├── archive/                          # Old code, data, and figure files
+├── .gitignore                        # Git ignore file (e.g., system files)
+├── LICENSE                           # License file
+└── README.md                         # Project description and instructions
 ```
 
 Of these files, those in the source directory are the most important.
-In particular, the `generateQUBO()` function in the `src/dwaveSolver.py` file generates QUBOs for Simon's problem of varying sizes and penalty parameters.
-Early experimental results indicate that a size $n$ penalty array with alternating entries $+2$ and $-2$ works well in most instances.
+In particular, the `generateQUBO()` function in the `src/QUBOforExternalSolver.py` file generates QUBOs for Simon's problem of varying sizes and penalty parameters.
+These QUBOs are saved in the `QUBOs/` directory and can be imported into external solvers.
+Experimental results indicate that a size $n$ penalty array with alternating entries $+2$ and $-2$ works well in most instances.
 
 ## Usage
 
