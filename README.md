@@ -1,7 +1,7 @@
 # Adiabatic Simon's Algorithm
 
 This repository contains an implementation of an **adiabatic version of Simon's Algorithm**.
-The algorithm is a quantum algorithm that solves **Simon's problem**, which can be solved exponentially faster using quantum resources than classical ones.
+A complete description of the algorithm can be found in the paper associated with this project: https://arxiv.org/abs/2504.10771.
 
 ## Table of Contents
 
@@ -13,19 +13,18 @@ The algorithm is a quantum algorithm that solves **Simon's problem**, which can 
 
 ## Introduction
 
-Simon's problem involves finding a hidden string $\( s \)$ such that a black-box function $\( f(x) \)$ satisfies:
-- $\( f(x) = f(x') \)$ if $\( x \oplus x' = s \)$
-- $\( f(x) \neq f(x') \)$ otherwise.
+Let $\\{0,1\\}^n$ be the set of all binary bitstrings of length $n$.
+Suppose that one is given a black-box oracle function $f(x):\\{0,1\\}^n\rightarrow\\{0,1\\}^{n-1}$ with the property that there exists some fixed $s\in\\{0,1\\}^n$ such that $f(x) = f(x')$ for all $x \neq x'$ if and only if $x \oplus x' = s$.
+In other words, $f(x)$ is a two-to-one periodic function with period $s$.
+Simon's problem is to identify $s$, where the only allowable operation is to query $f$.
+Simon showed that a fault-tolerant gate-based quantum computer can solve this problem with exponential advantage over a classical computer (https://epubs.siam.org/doi/10.1137/S0097539796298637)
 
-This implementation provides an adiabatic version of Simon's algorithm, which uses quantum adiabatic evolution to find the hidden string $\( s \).$
-A complete description of the algorithm can be found in the preprint associated with this project: https://arxiv.org/abs/2504.10771.
-
-## Algorithm
-
-The adiabatic version of Simon's algorithm adapts the problem to a quantum adiabatic framework, which minimizes the ground state energy of a Hamiltonian whose ground state encodes the solution to the problem.
-In practice, we accomplish this by encoding an instance of Simon's problem in a QUBO, including input, output, and ancillary qubits.
-We enforce a penalty parameter on transitions of the output qubits, which effectively fixes the output.
-We then allow the system to evolve and recover the input pair that matches the fixed output.
+This repository provides an adiabatic implementation of Simon's algorithm, which uses quantum adiabatic evolution to find the hidden string $s$.
+At a high level, the algorithm works by encoding an instance of Simon's problem into a Quadratic Unconstrained Binary Optimization (QUBO) problem, which can be solved on a quantum annealer.
+Once a QUBO has been obtained, penalty parameters are introduced on the output qubits.
+Doing this prepares a degenerate ground state which contains two valid evaluations of the oracle which share an output, that is, our ground state contains both $z$ and $z'=z\oplus s$ for some fixed $z\in\\{0,1\\}^n$.
+Assuming that both $z$ and $z'$ are sampled from the ground state with equal probability, then successfully sampling this state a few times is sufficient to solve the problem with high probability.
+For the full details of the implementation and performance of the algorithm, refer to https://arxiv.org/abs/2504.10771.
 
 ## Structure
 
