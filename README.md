@@ -17,7 +17,7 @@ Let $\\{0,1\\}^n$ be the set of all binary bitstrings of length $n$.
 Suppose that one is given a black-box oracle function $f(x):\\{0,1\\}^n\rightarrow\\{0,1\\}^{n-1}$ with the property that there exists some fixed $s\in\\{0,1\\}^n$ such that $f(x) = f(x')$ for all $x \neq x'$ if and only if $x \oplus x' = s$.
 In other words, $f(x)$ is a two-to-one periodic function with period $s$.
 Simon's problem is to identify $s$, where the only allowable operation is to query $f$.
-Simon showed that a fault-tolerant gate-based quantum computer can solve this problem with exponential advantage over a classical computer (https://epubs.siam.org/doi/10.1137/S0097539796298637)
+Simon showed that a fault-tolerant gate-based quantum computer can solve this problem with exponential advantage over a classical computer (https://epubs.siam.org/doi/10.1137/S0097539796298637).
 
 This repository provides an adiabatic implementation of Simon's algorithm, which uses quantum adiabatic evolution to find the hidden string $s$.
 At a high level, the algorithm works by encoding an instance of Simon's problem into a Quadratic Unconstrained Binary Optimization (QUBO) problem, which can be solved on a quantum annealer.
@@ -66,4 +66,4 @@ To compute the analytical solution to the problem, run `python src/analyticalSol
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License — see the LICENSE file for details.
