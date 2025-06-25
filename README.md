@@ -6,7 +6,6 @@ A complete description of the algorithm can be found in the paper associated wit
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Algorithm](#algorithm)
 - [Structure](#structure)
 - [Usage](#usage)
 - [License](#license)
