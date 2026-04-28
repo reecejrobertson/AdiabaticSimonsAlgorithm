@@ -61,7 +61,7 @@ Experimental results indicate that a size $n$ penalty array with alternating ent
 To run the experiments on a D-Wave machine, provide your API token in the `APIs/dwave.txt` file, then run `python src/dwaveSolver.py`.
 To run the experiments on a D-Wave simulator, run `python src/simulatorSolver.py`.
 To process data obtained through experiments (including the data already in the `data/` directory), run `python src/dataProcessing.py`.
-To compute the analytical solution to the problem, run `python src/analyticalSolver.py`
+To compute the analytical solution to the problem, run `python src/analyticalSolver.py`.
 
 ## License
 
